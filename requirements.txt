@@ -1,0 +1,10 @@
+streamlit
+PyPDF2
+python-dotenv
+langchain
+openai
+faiss-cpu
+altair
+tiktoken
+huggingface-hub
+-e .
