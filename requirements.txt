@@ -7,4 +7,6 @@ faiss-cpu
 altair
 tiktoken
 huggingface-hub
+InstructorEmbedding
+sentence-transformers
 -e .

@@ -2,7 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from src.logger import logging
 from src.exception import CustomException
-from src.utils import get_pdf_text
+from src.utils import get_pdf_text, get_text_chunks, get_vector_store
 
 
 def main():
@@ -16,14 +16,17 @@ def main():
         st.subheader("PDF upload")
         pdf_docs = st.file_uploader("Upload your PDF here", accept_multiple_files=True)
         if st.button("Process PDF"):
-            st.spinner("Processing")
-            # get PDF raw text
-            raw_text = get_pdf_text(pdf_docs)
-            st.write(raw_text)
+            with st.spinner("Processing"):
+                # get PDF raw text
+                raw_text = get_pdf_text(pdf_docs)
+                #st.write(raw_text)
 
-            # get text chunks
+                # get text chunks
+                text_chunks = get_text_chunks(raw_text)
+                st.write(text_chunks)
 
-            # create vector store
+                # create vector store
+                vector_store = get_vector_store(text_chunks)
 
 
 
